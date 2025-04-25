@@ -6,12 +6,13 @@ import QrCodeSkel from "/public/qrcodeSkel.png";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Header } from "@/components/header";
 
 export default function Scanqrcode() {
   const [albumCode, setAlbumCode] = useState("");
 
   return (
-    <main className="flex min-h-svh flex-col bg-gray-950 p-4">
+    <main className="bg-background flex min-h-svh flex-col p-4">
       {albumCode != "" ? (
         <div className="flex justify-between">
           <Link href="/"> Voltar </Link>
@@ -19,12 +20,7 @@ export default function Scanqrcode() {
           <button>Seg.</button>
         </div>
       ) : (
-        <div className="flex">
-          <Link href="/" className="mr-10">
-            Voltar
-          </Link>
-          <p className="ml-9 font-bold">Álbum existente</p>
-        </div>
+        <Header title="Álbum existente" />
       )}
 
       <div className="mt-10 flex flex-col gap-5 p-2 text-center">
