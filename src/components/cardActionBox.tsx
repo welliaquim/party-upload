@@ -5,8 +5,8 @@ type Props = {
 
 export default function CardActionBox({ title, children }: Props) {
   return (
-    <div className="h-24 w-full bg-neutral-600/20 flex flex-col justify-center items-center rounded-2xl gap-2 p-3">
-      <p className="font-light text-sm">{title}</p>
+    <div className="flex h-24 w-full flex-col items-center justify-center gap-2 rounded-2xl bg-neutral-600/20 p-3">
+      <p className="text-sm font-light">{title}</p>
       {children}
     </div>
   );
