@@ -5,6 +5,7 @@ import Link from "next/link";
 import QrCodeSkel from "/public/qrcodeSkel.png";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 
 export default function Scanqrcode() {
   const [albumCode, setAlbumCode] = useState("");
@@ -36,10 +37,8 @@ export default function Scanqrcode() {
             <CardTitle>Digite o código do álbum</CardTitle>
           </CardHeader>
           <CardContent>
-            <input
-              type="text"
+            <Input
               placeholder="Código do álbum"
-              className="h-8 w-36 rounded-2xl bg-neutral-600/20 text-center text-sm font-semibold outline-0 placeholder:text-center"
               value={albumCode}
               onChange={(e) => {
                 setAlbumCode(e.target.value);
@@ -47,17 +46,17 @@ export default function Scanqrcode() {
             />
           </CardContent>
         </Card>
-        <Card>
+        <Card className="gap-4">
           <CardHeader>
             <CardTitle>Escanear QR Code</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-600/20">
+            <div className="bg-accent flex h-12 w-12 items-center justify-center rounded-full">
               <Image
                 src={QrCodeSkel}
-                alt=""
-                width={20}
-                height={20}
+                alt="QR Code image"
+                width={32}
+                height={32}
                 className="opacity-50"
               />
             </div>
