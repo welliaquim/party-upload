@@ -1,16 +1,16 @@
 "use client";
 
-import CardActionBox from "@/components/cardActionBox";
 import Image from "next/image";
 import Link from "next/link";
 import QrCodeSkel from "/public/qrcodeSkel.png";
 import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Scanqrcode() {
   const [albumCode, setAlbumCode] = useState("");
 
   return (
-    <main className="flex min-h-screen flex-col bg-gray-950 p-4">
+    <main className="flex min-h-svh flex-col bg-gray-950 p-4">
       {albumCode != "" ? (
         <div className="flex justify-between">
           <Link href="/"> Voltar </Link>
@@ -31,28 +31,38 @@ export default function Scanqrcode() {
           Você pode participar de um álbum existente inserindo o código ou
           escaneando o QR Code da pulseira.
         </p>
-        <CardActionBox title={"Digite o código do álbum"}>
-          <input
-            type="text"
-            placeholder="Código do álbum"
-            className="h-8 w-36 rounded-2xl bg-neutral-600/20 text-center text-sm font-semibold outline-0 placeholder:text-center"
-            value={albumCode}
-            onChange={(e) => {
-              setAlbumCode(e.target.value);
-            }}
-          />
-        </CardActionBox>
-        <CardActionBox title={"Escanear QR Code"}>
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-600/20">
-            <Image
-              src={QrCodeSkel}
-              alt=""
-              width={20}
-              height={20}
-              className="opacity-50"
+        <Card>
+          <CardHeader>
+            <CardTitle>Digite o código do álbum</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <input
+              type="text"
+              placeholder="Código do álbum"
+              className="h-8 w-36 rounded-2xl bg-neutral-600/20 text-center text-sm font-semibold outline-0 placeholder:text-center"
+              value={albumCode}
+              onChange={(e) => {
+                setAlbumCode(e.target.value);
+              }}
             />
-          </div>
-        </CardActionBox>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Escanear QR Code</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-600/20">
+              <Image
+                src={QrCodeSkel}
+                alt=""
+                width={20}
+                height={20}
+                className="opacity-50"
+              />
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </main>
   );
